@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project HTML | CSS | JAVASCRIPT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1 {
+            color: blue;
+        }
+
+        #title {
+            color: red;
+        }
+
+        .sub-judul {
+            color: brown;
+        }
+
+        .flex-box {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid red;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .flex-box .paragraph {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            width: 100%;
+            height: 300px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: blue;
+            border: 1px solid blue;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+        .grid-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .grid-box .paragraph {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            width: 100%;
+            height: 300px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: blue;
+            border: 1px solid blue;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Title / Judul dari Halaman Website</h1>
+    <h1 id="title">Title / Judul dari Halaman Website</h1>
+    <h2 class="sub-judul">Sub Judul urutan ke-2</h2>
+
+    <span>Display FLEX</span>
+    <div class="flex-box">
+        <p class="paragraph" style="background-color: rgba(210, 105, 30, 0.502);">1</p>
+        <p class="paragraph background-check">234567</p>
+        <p class="paragraph background-check">334567</p>
+    </div>
+
+    <span>Display GRID</span>
+    <div class="grid-box">
+        <p class="paragraph">1</p>
+        <p class="paragraph">2</p>
+        <p class="paragraph">3</p>
+    </div>
+</body>
+
+</html>
