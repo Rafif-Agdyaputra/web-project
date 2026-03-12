@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Example</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            color: #FFFFFF;
+            padding: 20px 5%;
+        }
+
+        .link {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .link a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            color: rgb(102, 102, 255);
+        }
+
+        .main-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background: #F4F4F4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .child-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 5%;
+        }
+
+        .card {
+            flex: 1;
+            padding: 30px;
+            min-width: 250px;
+            background: #FFF;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+            text-align: center;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+
+        .modal-popup {
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0;
+            width: 50%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-popup::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-header, .modal-body, .modal-footer {
+            padding: 20px;
+        }
+
+        .modal-header {
+            background: #F4F4F4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0px); }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                background: #FFFFFF;
+                color: #333;
+            }
+
+            .link {
+                padding: 0;
+            }
+
+            .link a {
+                color: #333;
+                text-decoration: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                background: #333;
+            }
+
+            .card h3, p {
+                color: #FFFFFF;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <nav class="navbar">
+        <h2>Website Responsif</h2>
+        <ul class="link">
+            <li><a href="#">Bootcamps</a></li>
+            <li><a href="#">Spaces</a></li>
+            <li><a href="#">Teachers</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        <h1>Modern Website Responsif</h1>
+        <p>This is modern website responsive to any screen size.</p>
+    </section>
+
+    <section class="child-section">
+        <div class="card" id="open">
+            <h3>Bootcamps</h3>
+            <p>Ayo ikut bootcamp untuk memperdalam ilmu pemrograman / IT.</p>
+        </div>
+        <div class="card">
+            <h3>Spaces</h3>
+            <p>Butuh ruangan personal atau ramai-ramai, klik card ini.</p>
+        </div>
+        <div class="card">
+            <h3>Teachers</h3>
+            <p>Join sebagai pengajar untuk mendapatkan sertifikasi yang layak.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 CCIT FTUI - FSD</p>
+    </footer>
+
+    <dialog id="popup" class="modal-popup">
+        <div class="modal-header">
+            <h3>Bootcamps</h3>
+            <button id="close" class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Ayo ikut bootcamp untuk memperdalam ilmu pemrograman / IT.</p>
+        </div>
+        <div class="modal-footer">
+            <button id="confirm">Confirm</button>
+        </div>
+    </dialog>
+
+    <script>
+        // const names = "test";
+        // let age;
+        // var name = "rafif";
+
+        const modal = document.querySelector("#popup");
+        const card = document.querySelector("#open");
+        const closeButton = document.querySelector("#close");
+        const confirmButton = document.querySelector("#confirm");
+
+        card.addEventListener("click", () => modal.showModal());
+        closeButton.addEventListener("click", () => modal.close());
+        confirmButton.addEventListener("click", () => modal.close());
+
+    </script>
+
+</body>
+</html>
