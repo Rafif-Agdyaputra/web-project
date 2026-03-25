@@ -220,15 +220,16 @@
         confirmButton.addEventListener("click", () => modal.close());
 
         const searchInput = document.querySelector("#searchInput");
-        const searchCard = document.querySelector(".card");
 
         searchInput.addEventListener("input", (event) => {
             console.log(event.target.value.toLowerCase());
 
             const value = event.target.value.toLowerCase();
+            const searchCard = document.querySelectorAll(".card");
 
             searchCard.forEach(card => {
                 const title = document.querySelector("h3").innerText.toLowerCase();
+                // console.log(title);
                 if (title.includes(value)) {
                     card.style.display = "block";
                 } else {
